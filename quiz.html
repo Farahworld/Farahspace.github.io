@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farah Space - Aesthetic Motivation Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .nav-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            color: #666666;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+        }
+
+        .showcase-container {
+            width: 100%;
+            max-width: 650px;
+            text-align: left;
+            padding: 20px;
+        }
+
+        .brand-indicator {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffbd03;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .quote-canvas {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 40px;
+            border: 2px solid #141414;
+            padding: 35px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quote-main-text {
+            font-size: 22px;
+            line-height: 1.7;
+            color: #e5e5e5;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .quote-meta-tag {
+            font-size: 12px;
+            color: #ffbd03;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid #141414;
+            padding-top: 30px;
+        }
+
+        .action-trigger {
+            background: transparent;
+            border: none;
+            color: #666666;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .action-trigger:hover {
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">
+        <a href="index.html" class="back-link">← Return Home</a>
+    </div>
+
+    <div class="showcase-container">
+        <div class="brand-indicator">Farah Space Engine</div>
+        
+        <div class="quote-canvas" id="quote-wrapper">
+            <div class="quote-main-text" id="display-text">"Loading the ultimate motivation core..."</div>
+            <div class="quote-meta-tag" id="display-tag">// System Initializing</div>
+        </div>
+
+        <div class="controls-row">
+            <button class="action-trigger" onclick="fetchNextQuote()">Next Thought —</button>
+        </div>
+    </div>
+
+    <script>
+        const archive = [
+            // Medical & Stethoscope Focus
+            { text: "🩺 Dream big, work hard, and stay focused. Your future stethoscope is closer than you think! 🌟", tag: "Medical Destiny", borderColor: "#ffbd03" },
+            { text: "🥼 That White Apron isn't just a piece of cloth; it's a responsibility earned through sweat and sacrifice. ❤️", tag: "The Uniform", borderColor: "#00ffcc" },
+            { text: "🏥 One day, you will walk through hospital corridors not as a visitor, but as the savior. Keep pushing! 🩺", tag: "Clinical Vision", borderColor: "#2ed573" },
+            { text: "💉 Sweat today in silence, so that tomorrow your success can heal the world. 🌍", tag: "Healer Mindset", borderColor: "#ffa502" },
+            { text: "🩸 Behind every successful doctor is years of relentless study that nobody saw. Trust the process. 📚", tag: "Unseen Efforts", borderColor: "#ff4757" },
+            
+            // Physics Core
+            { text: "⚡ Complex physics numericals can be tough, but your absolute consistency is much tougher! 📈", tag: "Physics Grind", borderColor: "#ff4757" },
+            { text: "🌌 Just like gravity pulls objects down, let your passion pull down every massive obstacle in your way. 🪐", tag: "Gravitational Drive", borderColor: "#ff4757" },
+            { text: "🔋 Potential energy is useless until you convert it into Kinetic Energy. Stop thinking, start solving! ⚙️", tag: "Energy Shift", borderColor: "#ffbd03" },
+            { text: "💡 When the resistance of life feels extra high, increase your internal voltage. You are built to flow! 🔌", tag: "Current Mindset", borderColor: "#00ffcc" },
+            { text: "🌀 Mechanics might feel twisted, but once you find your center of mass, nothing can destabilize you. ⚖️", tag: "Equilibrium", borderColor: "#2ed573" },
+
+            // Chemistry Core
+            { text: "🧪 Be like a noble gas—perfectly stable, completely calm, and focused only on your goal. ⚗️", tag: "Chemistry Core", borderColor: "#ffa502" },
+            { text: "💎 High pressure and extreme heat can break ordinary structures, but they also turn carbon into diamonds. 👑", tag: "Thermodynamics", borderColor: "#ffa502" },
+            { text: "💥 Hard work is the ultimate catalyst. It accelerates your path to success without changing your inner core. 🧬", tag: "Reaction Catalyst", borderColor: "#ff4757" },
+            { text: "🔗 Isolate yourself from volatile distractions. Build strong covalent bonds with your textbooks. 📚", tag: "Organic Purification", borderColor: "#2ed573" },
+            { text: "🧪 Even the most complex organic mechanisms can be deconstructed step by step. Slow down and analyze. 🧩", tag: "Bonding Logic", borderColor: "#00ffcc" },
+
+            // Biology Core
+            { text: "🌿 Every sentence of NCERT you process brings you one deep heartbeat closer to AIIMS. 🧬", tag: "Biology Vision", borderColor: "#2ed573" },
+            { text: "🧠 Your cortical brain has billions of synapses waiting to build a beautiful future. Keep them alive! 🔥", tag: "Neural Spark", borderColor: "#2ed573" },
+            { text: "🫀 The human heart beats 100,000 times a day. Let every single beat remind you of your ultimate medical dream. ❤️", tag: "Human Physiology", borderColor: "#ff4757" },
+            { text: "🌱 Just like a seed undergoes silent darkness before blooming into a tree, your struggles are preparing you to bloom. 🌳", tag: "Plant Anatomy", borderColor: "#ffa502" },
+            { text: "🧬 DNA holds the blueprint of life, but your current determination codes the blueprint of your elite rank. 📊", tag: "Genetic Expression", borderColor: "#ffbd03" },
+
+            // Farah Special (PCB + Coding)
+            { text: "💻 Balancing PCB and coding is your unique superpower. Keep creating, keep growing! 🚀", tag: "Farah Mindset", borderColor: "#00ffcc" },
+            { text: "🎯 Ranks aren't given in charity; they are snatched through brutal discipline and sleepless nights. ⏰", tag: "Brutal Truth", borderColor: "#ffbd03" },
+            { text: "☕ Sleep is commercial, dreams are real. Wake up, drink some coffee, and conquer your daily targets. 🌟", tag: "Midnight Hustle", borderColor: "#ffa502" },
+            { text: "📝 Don't stop when you are tired. Stop only when your mock test answers are 100% correct. 💯", tag: "Error Analysis", borderColor: "#ff4757" },
+            { text: "🔮 The best way to predict your future medical seat is to build it right now, code by code, line by line. 🏗️", tag: "Future Architecture", borderColor: "#2ed573" }
+        ];
+
+        let internalPointer = -1;
+
+        function fetchNextQuote() {
+            const txtNode = document.getElementById("display-text");
+            const tagNode = document.getElementById("display-tag");
+            const wrapperNode = document.getElementById("quote-wrapper");
+
+            txtNode.style.opacity = 0;
+            
+            setTimeout(() => {
+                let selectionIndex;
+                do {
+                    selectionIndex = Math.floor(Math.random() * archive.length);
+                } while (selectionIndex === internalPointer && archive.length > 1);
+
+                internalPointer = selectionIndex;
+                const activeData = archive[selectionIndex];
+
+                txtNode.innerText = `"${activeData.text}"`;
+                tagNode.innerText = `// ${activeData.tag}`;
+                
+                wrapperNode.style.borderColor = activeData.borderColor;
+                tagNode.style.color = activeData.borderColor;
+                
+                txtNode.style.opacity = 1;
+            }, 300);
+        }
+
+        fetchNextQuote();
+    </script>
+</body>
+</html>

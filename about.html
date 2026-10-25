@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Farah's Digital Space</title>
+    <!-- Google Fonts for Cursive Text Style -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #1f2833;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-weight: bold;
+            color: #ffbd03;
+            font-size: 18px;
+        }
+        .back-home {
+            color: #c5a880;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-home:hover {
+            color: #ffffff;
+        }
+        
+        .bio-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #12131c;
+            border: 1px solid #1f2833;
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Grand Welcome Box Layout */
+        .welcome-banner {
+            background: linear-gradient(135deg, rgba(255,189,3,0.1) 0%, rgba(0,255,204,0.05) 100%);
+            border: 1px dashed #ffbd03;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .welcome-banner h2 {
+            color: #ffbd03;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .welcome-banner p {
+            color: #a5a5a5;
+            font-size: 14px;
+        }
+
+        /* Cute Cursive Box with Glowing Aesthetics */
+        .cursive-profile-box {
+            border: 2px dashed #00ffcc;
+            background: rgba(0, 255, 204, 0.02);
+            padding: 25px 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
+            position: relative;
+        }
+        .profile-title {
+            font-family: 'Great Vibes', cursive, sans-serif;
+            font-size: 52px;
+            color: #ffbd03;
+            margin-bottom: -5px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .profile-subtitle {
+            color: #00ffcc;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .content-section {
+            margin-bottom: 35px;
+        }
+        .content-section h3 {
+            font-size: 22px;
+            color: #ffbd03;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+        }
+        .content-section p {
+            color: #b5b5b5;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Interactive Data Analytics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 35px 0;
+        }
+        .stat-card {
+            background-color: #1c1d24;
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffcc;
+        }
+        .stat-card h4 {
+            color: #00ffcc;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .stat-card p {
+            color: #858585;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #444;
+            font-size: 12px;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">● FARAH SPACE</div>
+        <a href="index.html" class="back-home">← Back to Home</a>
+    </header>
+
+    <div class="bio-container">
+        
+        <!-- Grand Welcome Banner -->
+        <div class="welcome-banner">
+            <h2>👋 Welcome to my Personal Digital Corner!</h2>
+            <p>Thank you so much for breaking your study routine to visit this space. I hope you leave with fresh energy.</p>
+        </div>
+
+        <!-- Custom Cursive Styled Title Box -->
+        <div class="cursive-profile-box">
+            <h1 class="profile-title">About Farah</h1>
+            <p class="profile-subtitle">NEET Aspirant & Frontend Web Developer</p>
+        </div>
+
+        <div class="content-section">
+            <h3>🩺 My Journey & The Medical Dream</h3>
+            <p>Hello there! I am Farah, a student currently navigating through the intense yet beautiful phase of 11th grade. My ultimate target is to clear the NEET examination and build a life dedicated to medicine. For me, wearing that crisp White Apron and holding a Stethoscope isn't just an elite career choice—it's a deep passion to learn the intricate biological design of the human body and serve people when they are most vulnerable.</p>
+            <p>Every single day of my preparation is a test of patience, discipline, and stamina. From tracing complex pathways in Human Physiology to breaking down challenging conceptual problems in Physics and Chemistry, this journey is transforming me into a resilient human being.</p>
+        </div>
+
+        <!-- Dynamic Grid Blocks -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>Standard 11th</h4>
+                <p>Building the Core Foundation</p>
+            </div>
+            <div class="stat-card">
+                <h4>PCB + JavaScript</h4>
+                <p>The Medical-Tech Fusion Focus</p>
+            </div>
+            <div class="stat-card">
+                <h4>Target: AIIMS</h4>
+                <p>Aiming for the Highest Peak</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>💻 Why Web Development?</h3>
+            <p>You might wonder why a medical student is playing around with lines of code. To be honest, coding is my creative escape! While Biology demands pure active recall and understanding, web development allows me to architect things visually from scratch. Learning HTML, CSS, and JavaScript alongside my vast NEET syllabus is a hardcore balancing act, but it teaches me elite level time management skills.</p>
+            <p>I structured this entire website by myself to create a minimal, distractions-free zone where fellow aspirants can escape the toxic pressure of social media and gather raw, pure motivation to clear their daily academic targets.</p>
+        </div>
+
+        <div class="content-section">
+            <h3>✨ My Core Principles</h3>
+            <p>I strongly believe that motivation can get you started, but only raw, cold discipline can carry you through the finish line. On days when my mock test scores drop or Physics formulas seem impossible to memorize, I remind myself of why I started this circuit in the first place.</p>
+            <p>Once again, thank you for stepping into my universe! Feel free to explore the motivation module and carry that extra spark back to your study desk. Let's work hard in absolute silence, and let our final selection ranks make all the noise!</p>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 FARAHSPACE. All rights reserved.
+    </footer>
+
+</body>
+</html>
